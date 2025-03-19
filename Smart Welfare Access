@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SWA – Smart Welfare Access</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #388E3C;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #2E7D32;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .search-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45A049;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SWA – Smart Welfare Access</h1>
+        <p>Empowering Beneficiaries with Smart and Accessible Welfare Tools</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#search">Search</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About SWA</h2>
+            <p>SWA – Smart Welfare Access is a digital platform designed to make welfare access smarter, faster, and easier for beneficiaries. Our goal is to simplify welfare program management and ensure every household gets the support they deserve.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Beneficiary Data Management</li>
+                <li>Household Number Search</li>
+                <li>Resource Allocation Tracking</li>
+                <li>Support & Assistance Tools</li>
+            </ul>
+        </section>
+
+        <section id="search" class="search-section">
+            <h2>Search Household Number</h2>
+            <input type="text" id="beneficiaryName" placeholder="Enter beneficiary name">
+            <button onclick="searchHousehold()">Search</button>
+            <div id="result"></div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: support@swa-platform.org</p>
+            <p>Phone: +123-456-7890</p>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 SWA – Smart Welfare Access. All rights reserved.
+    </footer>
+
+    <script>
+        const beneficiaries = [
+            { name: "John Doe", householdNumber: "HH12345" },
+            { name: "Jane Smith", householdNumber: "HH67890" },
+            { name: "Alice Johnson", householdNumber: "HH11223" },
+            { name: "Bob Brown", householdNumber: "HH33445" }
+        ];
+
+        function searchHousehold() {
+            const input = document.getElementById('beneficiaryName').value.toLowerCase().trim();
+            const resultDiv = document.getElementById('result');
+            const match = beneficiaries.find(b => b.name.toLowerCase() === input);
+
+            if (match) {
+                resultDiv.innerHTML = `Household Number for <strong>${match.name}</strong>: ${match.householdNumber}`;
+            } else {
+                resultDiv.innerHTML = 'Beneficiary not found.';
+            }
+        }
+    </script>
+
+</body>
+</html>
